@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+import sys
+sys.stdin = open('2001_input.txt')
+
+>>>>>>> 51fbd2b6cd9744ddba88e49446bf106f8d4bc206
 T = int(input())
 for tc in range(1, T+1):
     N, M = map(int, input().split())  # N: 배열의 길이, M : 파리채크기
