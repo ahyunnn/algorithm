@@ -1,6 +1,6 @@
-import sys 
+import sys
 
-T = int(sys.stdin.readline())
+T = int(input())
 stack = []
 
 for _ in range(T):
