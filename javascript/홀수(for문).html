@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+        let sum_val = [];
+        let min = Number.MAX_SAFE_INTEGER;
+        let total = 0;
+
+        for (i = 0; i < arr.length; i++) {
+          if (arr[i] % 2 != 0) {
+            sum_val.push(arr[i]);
+            total += arr[i];
+          }
+        }
+
+        for (i = 0; i < sum_val.length; i++) {
+          if (sum_val[i] < min) {
+            min = sum_val[i];
+          }
+        }
+        answer.push(total);
+        answer.push(min);
+        return answer;
+      }
+
+      arr = [12, 77, 38, 41, 53, 92, 85];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
