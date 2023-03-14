@@ -10,21 +10,21 @@
 
         // 이중 for문을 돌면서 전체 합에서 두 숫자를 뽑아서 뺐을 때 100이 되면 해당 수 제외!
 
-        // 전체 값 + : 배열 내장합수 map 사용
+        // 1. total : 배열 내장합수 map 사용
         // let total = 0;
         // arr.map((element) => {
         //   total += element;
         // });
 
-        // 전체 값 + : 배열 내장합수 reduce (누적)
-        let sum = answer.reduce((a, b) => a + b, 0);
+        // 2. sum : 배열에 담긴 모든 값을 누적 (reduce 사용)
+        let sum = answer.reduce((accumulator, b) => accumulator + b, 0);
 
         // 이중 for문 돌려서 합이 40이 되는 숫자 찾기
-        for (let i = 0; i < 8; i++) {
-          for (let j = i + 1; j < 9; j++) {
-            if (sum - (answer[i] + answer[j]) == 100) {
-              answer.splice(j, 1);
-              answer.splice(i, 1);
+        for (i = 0; i < 8; i++) {
+          for (j = i + 1; j < 9; j++) {
+            if (sum - (arr[i] + arr[j]) === 100) {
+              arr.splice(j, 1);
+              arr.splice(i, 1);
             }
           }
         }
