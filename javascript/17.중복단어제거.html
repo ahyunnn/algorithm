@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        // console.log(s.indexOf("good")); // 0
+        // console.log(s.indexOf("time")); // 1
+        // console.log(s.indexOf("student")); // 4
+
+        answer = s.filter(function (v, i) {
+          // console.log(v, i);
+          // good 0
+          // time 1
+          // good 2
+          // time 3
+          // student 4
+          return s.indexOf(v) === i;
+        });
+        return answer;
+      }
+      let str = ["good", "time", "good", "time", "student"];
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
