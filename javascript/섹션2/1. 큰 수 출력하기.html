@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+
+        // 첫 번째 수는 무조건 넣기
+        answer.push(arr[0]);
+
+        // for문 해당 자리 수와 그 다음 자리를 비교해서 크면 answer에 push
+        for (i = 0; i < arr.length; i++) {
+          if (arr[i] < arr[i + 1]) {
+            answer.push(arr[i + 1]);
+          }
+        }
+        return answer;
+      }
+
+      let arr = [7, 3, 9, 5, 6, 12];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
