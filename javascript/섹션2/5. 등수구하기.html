@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let n = arr.length; // 5
+				
+				// Array.from() 메서드
+        let answer = Array.from({ length: n }, () => 1); // [1, 1, 1, 1, 1]
+				
+				// 해당 배열에서 한 값을 고정하고, 다른 값들과 하나씩 비교
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+						// 고정한 값이 다른 값보다 작으면 해당 값은 answer 인덱스 값에 + 1
+            if (arr[i] < arr[j]) {
+              answer[i]++;
+            }
+          }
+        }
+        return answer;
+      }
+
+      let arr = [87, 89, 92, 100, 76];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
