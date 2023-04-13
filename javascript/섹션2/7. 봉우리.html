@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = 0;
+        let n = arr.length;
+        let dx = [0, 1, 0, -1];
+        let dy = [-1, 0, 1, 0];
+
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            // flag : 상하좌우의 숫자보다 기준 숫자가 클 때 1
+            let flag = 1;
+
+            // 해당되지 않는 조건 : 상하좌우 중 조건에 해당되지 않으면 flag를 0으로 바꾸고 break
+            for (let k = 0; k < 4; k++) {
+              let nx = i + dx[k];
+              let ny = j + dy[k];
+
+              // 중첩해서 조건을 쓸 수 없음! (0<=nx<n)
+              if (
+                0 <= nx &&
+                nx < n &&
+                0 <= ny &&
+                ny < n &&
+                arr[nx][ny] >= arr[i][j]
+              ) {
+                flag = 0;
+                break;
+              }
+            }
+
+            if (flag) answer++;
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [
+        [5, 3, 7, 2, 3],
+        [3, 7, 1, 6, 1],
+        [7, 2, 5, 3, 4],
+        [4, 3, 6, 4, 1],
+        [8, 7, 3, 5, 2],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
