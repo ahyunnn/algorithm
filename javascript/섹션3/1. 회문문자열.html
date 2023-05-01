@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "YES";
+        // 소문자로 변경한 변수 : lower
+        let lower = s.toLowerCase();
+
+        // lower를 거꾸로 뒤집은 변수 : rev
+        let rev = lower.split("").reverse().join(""); // tooog
+        let rev2 = lower.split("").reverse(); // ['t', 'o', 'o', 'o', 'g']
+        let rev3 = lower.split(""); // ['g', 'o', 'o', 'o', 'T']
+
+        if (lower !== rev) answer = "NO";
+
+        return answer;
+      }
+
+      let str = "goooT";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
