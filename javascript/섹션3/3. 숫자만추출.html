@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = "";
+
+        for (let x of str) {
+          // isNaN(Not A Number) : 숫자인지 판별
+          if (!isNaN(x)) {
+            answer += x;
+          }
+        }
+        // parseInt: 문자열 인자를 파싱하여 정수를 반환
+        return parseInt(answer);
+      }
+
+      let str = "g0en2T0s8eSoft";
+      console.log(solution(str));
+      console.log(isNaN(3)); // 3은 숫자가 아니다 => false
+      console.log(isNaN("ME")); // ME는 숫자가 아니다 => true
+    </script>
+  </body>
+</html>
