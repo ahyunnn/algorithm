@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, t) {
+        let answer = [];
+        let p = 1000; // 적당히 큰 수
+
+        // 1. 앞에서 부터 문자열을 하나씩 검사해서 t와 값이 같으면 p = 0
+        // 다르면 +1씩
+        for (let x of s) {
+          if (x === t) {
+            p = 0;
+            answer.push(p);
+          } else {
+            p++;
+            answer.push(p);
+          }
+        }
+        p = 1000; // p값 초기화
+        // 2. 뒤에서부터 문자열을 하나씩 검사
+        // 앞에서부터 검사할 때의 p값과 뒤에서부터 검사할 때의 p값 중 작은 값을 answer에 두기
+        for (let i = s.length - 1; i >= 0; i--) {
+          if (s[i] === t) {
+            p = 0;
+          } else {
+            p++;
+            answer[i] = Math.min(answer[i], p);
+          }
+        }
+        return answer;
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html>
