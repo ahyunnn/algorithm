@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let answer = "";
+        let max = 0;
+
+        for (let x of arr) {
+          let sum = 0; // 자릿수의 합
+          let tmp = x;
+
+          // 10으로 나눈 나머지를 sum에 합
+          // tmp는 10으로 나눈 몫으로 업데이트
+          while (tmp) {
+            sum += tmp % 10;
+            tmp = Math.floor(tmp / 10);
+          }
+
+          if (sum > max) {
+            max = sum;
+            answer = x;
+          } else if (sum === max) {
+            // max값이 같은 경우에는 arr에 속해있는 값이 큰 것으로 answer 반환
+            if (x > answer) {
+              answer = x;
+            }
+          }
+        }
+
+        return answer;
+      }
+      let arr = [128, 460, 603, 40, 521, 137, 123];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html>
