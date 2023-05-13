@@ -11,7 +11,7 @@
 # n = int(input())
 # lst = list(map(int, input().split()))
 # answer = 0
-# 
+#
 # for i in range(n):
 #     if isPrime(lst[i]):
 #         answer += 1
