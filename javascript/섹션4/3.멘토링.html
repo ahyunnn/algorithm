@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(test) {
+        let answer = 0;
+        let m = test.length; // m : 테스트 횟수
+        let n = test[0].length; // n : 테스트에 참여한 학생 수
+
+        // 모든 경우의 수 구하기
+        for (let i = 1; i <= n; i++) {
+          for (let j = 1; j <= n; j++) {
+            let cnt = 0; // 모든 케이스에서 멘토가 멘티보다 순위가 높은지 파악하기 위한 수
+            // 테스트 케이스마다 멘토, 멘티 순위 확인
+            for (let k = 0; k < m; k++) {
+              let pi = 0; // 멘토의 인덱스
+              let pj = 0; // 멘티의 인덱스
+              for (let s = 0; s < n; s++) {
+                if (test[k][s] === i) pi = s;
+                if (test[k][s] === j) pj = s;
+              }
+              // 멘토가 멘티보다 순위가 높으면 cnt += 1
+              if (pi < pj) cnt++;
+            }
+            // 테스트 케이스만큼 멘토가 순위가 더 높으면 answer += 1
+            if (cnt === m) answer++;
+          }
+        }
+        return answer;
+      }
+
+      let arr = [
+        [3, 4, 1, 2],
+        [4, 3, 2, 1],
+        [3, 1, 4, 2],
+      ];
+      console.log(solution(arr));
+
+      // 이 문제의 경우 접근법도 조금 어려웠지만, for문을 돌릴 때 범위 지정도 잘 생각해주어야한다!
+    </script>
+  </body>
+</html>
