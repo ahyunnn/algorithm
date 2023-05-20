@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      // 소수인지 판별하는 함수
+      function isPrime(num) {
+        // cnt : cnt가 2인 값이 소수 (1과 num)
+        let cnt = 0;
+        for (let j = 1; j <= num; j++) {
+          if (num % j === 0) cnt++;
+        }
+        if (cnt == 2) return true;
+      }
+
+      // 더 효율적인 소수 구하기 함수
+      function isPrime2(num) {
+        if (num === 1) return false;
+        for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
+
+      function solution(arr) {
+        let answer = [];
+        for (let i = 0; i < arr.length; i++) {
+          // String으로 나누어서 숫자를 뒤집은 후 정수화하기
+          let rev_num = parseInt(String(arr[i]).split("").reverse().join(""));
+
+          if (isPrime2(rev_num)) {
+            answer.push(rev_num);
+          }
+        }
+        return answer;
+      }
+
+      let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
