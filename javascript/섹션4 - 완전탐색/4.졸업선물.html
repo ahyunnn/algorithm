@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, product) {
+        let answer = 0;
+        let len = product.length;
+        // 총 비용을 기준으로 정렬 (오름차순)
+        // why?
+        product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+
+        // 할인 받을 상품을 먼저 지정 : i
+        for (let i = 0; i < len; i++) {
+          // money : 남은 예산, cnt : 최대 학생수
+          let money = m - (product[i][0] / 2 + product[i][1]);
+          let cnt = 1;
+          for (let j = 0; j < len; j++) {
+            // 남은 예산을 초과하는 경우
+            if (j != i && product[j][0] + product[j][1] > money) break;
+            // 남은 예산을 초과하지 않는 경우
+            if (j != i && product[j][0] + product[j][1] <= money) {
+              money -= product[j][0] + product[j][1];
+              cnt++;
+            }
+          }
+          // 가장 많은 학생을 구하기 위해 최대값을 비교
+          answer = Math.max(answer, cnt);
+        }
+        return answer;
+      }
+
+      let arr = [
+        [6, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [10, 3],
+      ];
+      console.log(solution(28, arr));
+    </script>
+  </body>
+</html>
