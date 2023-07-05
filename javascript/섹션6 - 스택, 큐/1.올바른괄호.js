@@ -16,3 +16,6 @@ function solution(str) {
 
   return answer;
 }
+
+let a = "(()(()))(()";
+console.log(solution(a));
