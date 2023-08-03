@@ -5,10 +5,12 @@ function solution(boards, moves) {
 
   minusMove.forEach((x) => {
     for (let i = 0; i < boards.length; i++) {
+      // 인형이 존재하면
       if (boards[i][x] !== 0) {
         if (stack[stack.length - 1] === boards[i][x]) {
           answer += 2;
           stack.pop();
+          boards[i][x];
         } else {
           stack.push(boards[i][x]);
           boards[i][x] = 0;
